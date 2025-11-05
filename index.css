@@ -78,4 +78,98 @@ h1{
     margin-left: 30px;
     margin-top: 30px;
    
+
 }
+
+
+
+@keyframes color-change {
+  0% {
+    background-color: blue; /* Starting color */
+  }
+  25% {
+    background-color: purple; /* Color at 25% of the animation */
+  }
+  50% {
+    background-color: blue; /* Color at 50% */
+  }
+  75% {
+    background-color: purple; /* Color at 75% */
+  }
+  100% {
+    background-color: blue; /* Ending color (or back to red for a loop) */
+  }
+}
+
+body {
+  animation-name: color-change; /* Name of your @keyframes rule */
+  animation-duration: 20s; /* Duration of one animation cycle */
+  animation-iteration-count: infinite; /* How many times to repeat (infinite for continuous) */
+  animation-timing-function: ease-in-out; /* Speed curve of the animation */
+  animation-direction: alternate; /* Makes the animation play forward and backward */
+}
+
+.bubble-background {
+  position: absolute; /* Or fixed, depending on desired behavior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Hide bubbles outside the container */
+  /*background: linear-gradient(to bottom, #007bff, #00c6ff); /* Example background */
+}
+
+.bubble {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.4); /* Semi-transparent white */
+  border-radius: 50%; /* Make them circular */
+  animation: float-bubble linear infinite; /* Apply animation */
+}
+
+@keyframes float-bubble {
+  0% {
+    transform: translateY(100vh) scale(0); /* Start from bottom, small */
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(50vh) scale(1); /* Mid-point, full size */
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(0.5); /* Float off-screen, smaller */
+    opacity: 0;
+  }
+}
+
+.bubble:nth-child(1) {
+  width: 90px;
+  height: 90px;
+  left: 10%;
+  animation-duration: 10s;
+  animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+  width: 60px;
+  height: 60px;
+  left: 30%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+  width: 30px;
+  height: 30px;
+  left: 70%;
+  animation-duration: 8s;
+  animation-delay: 4s;
+}
+
+.bubble:nth-child(4) {
+    width:90px;
+    height: 90px;
+    left: 90%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+/* Add more styles for other bubbles */
